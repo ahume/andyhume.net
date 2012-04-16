@@ -1,0 +1,33 @@
+--- 
+layout: post
+title: Improvements to form script
+published: true
+meta: 
+  _edit_last: "2715"
+tags: []
+
+type: post
+status: publish
+---
+I have made various improvements to the way the <a href="http://thedredge.org/2005/11/highlighting-form-labels/">form enhancement script</a> works. On the advice of <a href="http://novemberborn.net">Mark Wubben</a>the event handlers are now set with proper event model methods and not with the <code>setAttribute</code> property. I kind of see your point, Mark.
+
+More importantly, the script is now much more generic and should work on just about any page you plug it in to. It now works by getting the <code>id</code> of the <code>input</code> element that is currently in focus and searching for a <code>label</code> element with a matching <code>for</code> attribute. This means we are not relying on any other feature of the markup to make the script work.
+
+<code>
+id = this.getAttribute('id');
+label = document.getElementsByTagName('label');
+for (k = 0 ; k &lt; label.length ; k++) {
+if (label[k].getAttribute(&#39;for&#39;) == id) {
+label[k].style.color = &#39;#a00&#39;;
+}
+</code>
+
+One issue I'm having is being able to concatenate two HTML Object collections. I have an array of <code>input</code>s and an array of <code>textarea</code>s, so my question is, why can I not concatenate them as follows.
+
+<code>
+input = document.getElementsByTagName('input');
+textarea = document.getElementsByTagName('textarea');
+both = input.concat(text);
+</code>
+
+At the moment I am using the DOM Level 0 method of getting form elements; which works, but I'd rather do it the previous way, and build my own arrays. Any ideas?

@@ -1,0 +1,47 @@
+---
+layout: home
+section: home
+---
+<div class="lead">
+<section class="primary about">
+<h2>About me</h2>
+<p>I build web sites and web applications. I currently work in the software architecture team at the <a href="http://www.guardian.co.uk">Guardian</a>. Formerly at Clearleft, Microsoft and Multimap where I&rsquo;ve worked on projects for the BBC, Mozilla, Gumtree, Channel 4. Sometimes I write articles for <a href="www.netmagazine.com">.net Magazine</a>, and <a href="www.computerarts.co.uk">Computer Arts Projects</a>, and speak at conferences like <a href="http://sxsw.com">South By Southwest</a>.</p>
+</section>
+</div>
+
+<div class="lead">
+<section class="primary">
+<h2>Latest blog post</h2>
+{% assign post = site.posts.first %}
+<article>
+<h3><a href="http://blog.andyhume.net{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+<p class="meta">{{ post.date | date: "%d %B %Y" }}</p>
+{{ post.content }}
+</article>
+</section>
+</div>
+
+<div class="lead">
+<section class="primary">
+<h2>Previously</h2>
+<ol>
+<li>Senior Developer <strong>Clearleft</strong></li>
+<li>Lead Software Development Engineer <strong>Microsoft</strong></li>
+<li>Web Development Team Lead <strong>Multimap</strong></li>
+</ol>
+</section>
+</div>
+
+<div class="lead">
+<section class="primary">
+<h2>Recent Writing</h2>
+<ol>
+<li><i>Progressively enhance your clients</i> <strong>.net Magazine</strong></li>
+<li><i>HTML 5</i> <strong>.net Magazine</strong></li>
+<li><i>Type on the Web</i> <strong>Computer Arts Projects</strong></li>
+<li><i>How to get ahead on the web</i> <strong>Muso Magazine</strong></li>
+<li><i>The Anatomy of Web Fonts</i> <strong>Sitepoint</strong></li>
+<li><i>Understanding Any Order Columns</i> <strong>Bite Size Standards</strong></li>
+</ol>
+</section>
+</div>

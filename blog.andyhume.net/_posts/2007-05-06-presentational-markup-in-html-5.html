@@ -1,0 +1,20 @@
+--- 
+layout: post
+title: Presentational markup in HTML 5
+published: true
+meta: 
+  _edit_last: "2"
+tags: []
+
+type: post
+status: publish
+---
+I&#8217;ve been contributing to the W3C <a href="http://www.w3.org/html/wg/">HTML Working Group</a> working on the next version of HTML. I say contributing, I&#8217;ve found it tough enough keeping up with the pure volume of mail the group generates to make much of a contribution so far. Also, a lot of the initial discussions have been around some pretty high-level design principles which I&#8217;m leaving to the proper experts for the moment.
+
+One thought-provoking topic that I have been following closely however is the <code>&lt;indent&gt;</code> vs. <code>&lt;blockquote&gt;</code> discussion. It&#8217;s not worth going in to the specifics of that conversation here, but you can find that in the <a href="http://lists.w3.org/Archives/Public/public-html/">archives</a> if you want to follow it. What it has raised in my mind though is the question of using presentational mark-up in HTML.
+
+Most of what I&#8217;ve learnt about Web Standards like XHTML and HTML teaches that mark-up is for giving structure and meaning to content, and that CSS is for presenting that content in a web browser or other environment of human consumption. However, history tells us that HTML is not used like that. The <code>&lt;blockquote&gt;</code> example is a good one &#8212; it&#8217;s regularly used to indent content in the middle of prose whether the content inside the <code>&lt;blockquote&gt;</code> element is really a blockquote at all.
+
+The question is, would it be better for the Semantic Web if, instead of less knowledgeable page authors using <code>&lt;blockquote&gt;</code> incorrectly, an element like <code>&lt;indent&gt;</code> was created which allowed authors to simply indent content with no implied semantics?
+
+I think most people&#8217;s reaction to this is: No, use CSS to indent the content. And that was my initial reaction as well. However, following the argument through I think I can see both sides of the argument. Why pollute the web with incorrectly used HTML when we can give authors that want it a semantic-free mechanism for indenting their content?

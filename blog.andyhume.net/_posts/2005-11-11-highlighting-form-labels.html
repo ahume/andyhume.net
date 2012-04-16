@@ -1,0 +1,68 @@
+--- 
+layout: post
+title: Highlighting form labels
+published: true
+meta: 
+  _edit_last: "2715"
+tags: []
+
+type: post
+status: publish
+---
+Here's a nice little UI enhancement for forms that I knocked up today. I don't know if you have seen anything like it before? If so, let me know where, and I can see about improving my scripts.
+
+Talking of improving the script, I've realised there is a far better way of achieving this than how I have done it, which I will explain in a minute. First of all, go down to the comment form at the end of this post and fill in a few fields. Notice the labels become highlighted as each form field gets focus. Here's how it's done.
+
+First of all, get every <code>input</code> element in the page with a <code>type</code> attribute of <code>text</code>. Loop through these and add the <code>onsubmit</code> and <code>onblur</code> event handlers required to trigger the functions which do the real business. This is done with the <code>prepareLabels</code> function shown below, although now I think about it, <code>prepareInputs</code> might have been more appropriate.
+
+<code>
+function prepareLabels () {
+if (!document.getElementsByTagName('input')) exit;
+input = document.getElementsByTagName('input');
+for (i = 0 ; i &lt; input.length ; i++) {
+if (input[i].type == &#39;text&#39;) {
+input[i].setAttribute(&quot;onfocus&quot;,&quot;on(this)&quot;);
+input[i].setAttribute(&quot;onblur&quot;,&quot;off(this)&quot;);
+}
+}
+}
+</code>
+
+Next up I have two functions. One that changes the <code>style.color</code> property to the highlight color <code>onfocus</code>, and the other that reverts the property <code>onblur</code>. I realise that I could combine these into one function with a simple if statement, and I will do in the next version of this. The two functions are shown below.
+
+<code>
+function on(field) {
+temp = field.parentNode;
+dl = temp.previousSibling;
+label = dl.firstChild;
+label.style.color = '#a00';
+}
+function off(field) {
+temp = field.parentNode;
+dl = temp.previousSibling;
+label = dl.firstChild;
+label.style.color = '';
+}
+</code>
+
+In a nutshell, these navigate their way throught the <acronym title="Document Object Model">DOM</acronym> tree of <code>dd</code> and <code>dl</code>, finish up on the <code>label</code> element and apply the new color through the <code>style.color</code> property.
+
+And that's pretty much it. <a href="http://simon.incutio.com/archive/2004/05/26/addLoadEvent">Simon Willison's <code>addLoadEvent</code></a>finishes the job by attaching the <code>prepareLabels</code> function to the <code>onload</code> event.
+
+But what about the <code>textarea</code> your thinking, right? Well, at the moment I actually have a third function which duplicate's the <code>prepareLabels</code> function but gets the <code>textareas</code> instead.
+<code>
+function prepareText () {
+if (!document.getElementsByTagName('textarea')) exit;
+input = document.getElementsByTagName('textarea');
+for (j = 0 ; j &lt; input.length ; j++) {
+input[j].setAttribute(&quot;onfocus&quot;,&quot;on(this)&quot;);
+input[j].setAttribute(&quot;onblur&quot;,&quot;off(this)&quot;);
+}
+}
+</code>
+
+I know this is not a nice way of doing things, and it will be improved.
+
+The next stage I want to think about now is making this much more generic. A better solution would be to use the <code>for</code> attribute  of the <code>label</code> and match it with the <code>id</code> value of the <code>input</code> that is currently in focus. That way, we are not relying on our form being layed out with definition lists as I currently am.
+
+Anyway, that's something to think about while I'm on my way down to <a href="http://www.clearleft.com/services/training/dconstruct.php">d.construct</a>bright and early tomorrow morning.

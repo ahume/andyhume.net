@@ -1,0 +1,19 @@
+--- 
+layout: post
+title: localStorage is not cookies
+published: true
+
+type: post
+status: publish
+---
+<p>I've heard a lot of people recently describing HTML5 <code>localStorage</code> as being a replacement for cookies, or <em>cookies on steroids</em>. Even the masterful <a href="http://www.brucelawson.co.uk/">Bruce Lawson</a> said pretty much this in his fantastic <a href="http://www.slideshare.net/brucelawson/web-anywhere-mobile-optimisation-with-html5-css3-javascript">Web Anywhere</a> talk at SxSW last month. I cringe every time I hear someone say this as it's such an obviously dumbed down version of reality.</p>
+
+<p>So, to state the obvious&hellip;</p>
+
+<p>Cookies are small pieces (about 4 KB max) of data stored on the client which are sent in the headers of an HTTP request to the server, typically to allow for sessions or some other kind of state to be handled across requests. They contain expiry information and are typically created by the server using HTTP headers. There is also a JavaScript API that lets you access and edit cookies, although the less said about that the better. Cookies will continue to be a critical part of your web applications despite the introduction of <code>localStorage</code>.</p>
+
+<p><code>localStorage</code> is a persistent key-value store in the browser with a full JavaScript API to set/get/remove values and events to track changes programatically. It typically allows for up to 5MB of storage, although this can be increased at the user's discretion. Data in <code>localStorage</code> isn't sent to the server as it is with cookies.</p>
+
+<p><code>localStorage</code> allows for a whole range of uses that cookies do not, and cookies allow for a whole range of uses that <code>localStorage</code> does not. There is admittedly a small area of cross-over, but explaining it in those terms is backwards, hugely undervaluing the scope and importance of <code>localStorage</code>, and frankly condescending to the people you are explaining it to. Please stop doing it.</p>
+
+<p>The next time you're called to simply explain <code>localStorage</code> or <code>sessionStorage</code> in HTML5, don't mention cookies. Just simply say, "<code>localStorage</code> is a powerful key-value store in the browser which you can access through a JavaScript API."</p>

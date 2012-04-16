@@ -1,0 +1,66 @@
+--- 
+layout: post
+title: How and when to use sIFR
+published: true
+meta: 
+  _edit_last: "2715"
+tags: []
+
+type: post
+status: publish
+---
+<p>Before embarking on an analysis of sIFR, let&#8217;s make sure everyone is up to speed on what it is and how it works. sIFR stands for scalable Inman Flash Replacement and is a technique for delivering truly customised typography on the web. It does this by replacing any text in a designated element with Flash rendered text as the page is loading. It is important to understand that it is not the element that is being replaced by Flash, but the text within it, leaving the element to be styled or positioned as normal.</p>
+	<h3>Some facts about sIFR: not up for debate</h3>
+	<ul>
+	<li>sIFR does not require any changes to the (X)HTML code, all the work is done by Javascript, Flash and CSS.</li>
+	<li>If the user does not have Flash installed or Javascript enabled then the (X)HTML text is displayed and styled by CSS.</li>
+	<li>sIFR is scalable, and when rendered will adjust to the users font size settings.</li>
+	<li>sIFR is compatible with all screen readers. No problems or issues have ever been reported.</li>
+	<li>sIFR text is selectable with the mouse, although visual confirmation of the selection may be absent when selected with body text.</li>
+	<li>sIFR does not affect search engine placement or ranking, nor does it hide textual content from search engines or users.</li>
+	</ul>
+	<p>The conclusion should be that sIFR is an accessible, mature technology, and that its use must be given serious consideration by designers and developers.</p>
+	<h3>When to use sIFR</h3>
+	<p>Like all web technologies, it is important to understand the best way to use sIFR and to realise the situations in which it is most appropriately used. It&#8217;s about choosing the right tool for the job; and there is one job in particular where sIFR leaps from the toolbox and begs us to give it a go.</p>
+	<p>The scenario: A large sports news website decides to style all their headlines in a unique corporate typeface. News stories (with their headlines) are published by different people, in different places, all over the world, via some sort of content management software. They can&#8217;t employ someone to sit in front of Photoshop and create a headline image every time an editor wants to add a news story!</p>
+	<p>In this situation, sIFR is a tool that is unrivalled in simplicity, accessibility, and extensibility. Some news sites implement a solution involving the building of images on the fly via PHP or other server side jiggery-pokery. This works well as a time saver, but has many disadvantages when compared to sIFR:</p>
+	<ul>
+<li>Images will not scale to the users default font size.</li>
+	<li>Although images should be cached on the server, there is still a performance issue in generating the images.</li>
+	<li>Each image must be downloaded separately creating server and bandwidth concerns.</li>
+	</ul>
+	<p>With sIFR, all that is required is one Flash (.swf) file and one Javascript (.js) file to be downloaded allowing all headlines on the site to be rendered in the corporate typeface.</p>
+	<p>This example was not just plucked from the air. It was the exact scenario that led to <a href="http://mikeindustries.com">Mike Davidson</a> developing the original Flash replacement technique back in 2001, for a redesign of <a href="http://espn.com">ESPN.com</a>. Since then, with the input of <a href="http://shauninman.com">Shaun Inman</a> and others, it has grown in to the rounded and fluent technology we have today, and will likely have a major impact on web typography during 2005.</p>
+	<h3>Using sIFR for links</h3>
+	<p>The latest version of sIFR allows for linked text to be replaced. Although this is an exciting development it is almost always not appropriate to use it in such a context. This is due to the following accessibility issues:</p>
+	<ul>
+<li>No browser right-click (contextual menu)</li>
+	<li>No option/apple click</li>
+	<li>No status bar information</li>
+</ul>
+	<p>Although these appear to be trivial issues, many people find broken functionality of these features quite frustrating. With the lack of status bar information it is impossible to get a clue as to where you may be heading next; and with the popularity of browsers such as Firefox and Opera, the contextual right click is becoming an increasingly used tool. Although sIFR provides a basic right click on links, the browser&#8217;s contextual options are unavailable.</p>
+	<p>Of course, these are limitations with Flash and not with sIFR itself. It is likely that some of these problems will be overcome in the future. The status bar for example can be controlled via Javascript, so it is not too hard to imagine some sort of functionality being added to display link targets. However, until Flash allows for a full browser contextual menu on links, I believe that sIFR is not quite viable for tackling this kind of text.</p>
+	<h3>Anti-aliasing</h3>
+	<p>While most of the interest in sIFR is centred around the ability to serve custom fonts, an important consideration is also the fact that Flash text can be anti-aliased. Web developers often forget this, partly because so many are working with Mac OS X and its impressive Quartz font smoothing. However, Windows users (despite having the ClearType option buried in a display menu somewhere) are not likely to have anti-aliasing enabled, and the ability to have anti-aliased headlines shown to these users as well as pre Windows XP and Mac OS X users is an important consideration.</p>
+	<h3>Fine tuning</h3>
+	<p>One issue that I have heard mentioned a few times, is that sIFR does not allow for the fine control of text that is possible with an image. This is perfectly true. With an image you have created in Photoshop or Fireworks, you can exactly control kerning, stretching, anti-aliasing, or any other features such as drop shadows very accurately. A graphic&#8217;s editor is a true WYSIWYG medium. sIFR rendered Flash is not.</p>
+	<p>If this level of control is required then an image is still the best way to deliver the text, and sIFR is not the right tool for these situations. However, if the requirement is purely to deliver a custom typeface, then sIFR beats creating images hands down.</p>
+	<h3>Loading speed</h3>
+	<p>The rendering speed of the replaced text is an important consideration when using sIFR, and although speeds have been significantly increased since early versions, there can still be a distinct delay if there are many instances of sIFR on screen at one time. This is perhaps the best example of why using sIFR in moderation (ie. one headline per page, or headline per post) is currently the ideal way to use the technique.</p>
+	<p>This is one of the most frustrating drawbacks of using Flash replacement. The temptation when first implementing sIFR is to replace too many elements on the one page. For this to be viable, loading speeds have to be greatly increased; and although a nice nippy server will help you out, the true culprit is the time that the rather bulky Javascript takes to run.</p>
+	<h3>The conclusion</h3>
+	<p>sIFR is not a rival to image replacement; it is a separate tool that does a different job. It is best used with text that would otherwise be displayed in one of the browser&#8217;s default fonts, and not to replace custom built graphics.</p>
+	<p>The ideal situation for sIFR is when you would otherwise use an image solely to display a custom typeface or anti-aliased headline. This is done very frequently on the web, and sIFR is by far a better option in these cases. It scales to the users default font size, is selectable, degrades <span style="text-decoration:line-through;">gracefully</span> beautifully, and can be used on thousands of pages with only two files required for download.</p>
+	<h3>Summary</h3>
+	<ul>
+<li>Use sIFR for page titles or headlines.</li>
+	<li>Keep use of sIFR limited to optimise loading times.</li>
+	<li>Don&#8217;t use sIFR for links.</li>
+</ul>
+	<h3>Useful links</h3>
+	<ul>
+	<li><a href="http://www.mikeindustries.com/blog/archive/2004/08/sifr">Mike Davidson: Introducing sIFR: The Healthy Alternative to Browser Text</a></li>
+	<li><a href="http://www.mikeindustries.com/blog/archive/2004/12/sifr-2.0-release-candidate-3">Mike Davidson: sIFR 2.0 RC 3 is Here&#8230; Come Get Some</a></li>
+	<li><a href="http://www.mezzoblue.com/archives/2004/10/26/sifr/">Dave Shea on sIFR<br />
+</a></li>
+</ul>

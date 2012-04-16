@@ -1,0 +1,31 @@
+--- 
+layout: post
+title: Solar system model in CSS
+published: true
+meta: 
+  _edit_last: "2"
+tags: []
+
+type: post
+status: publish
+---
+<p>This is a brain-dump that got too big for the Idea section on the <a href="http://sciencehackday.pbworks.com/Ideas">Science hack day wiki</a> so I've moved it over here.</p>
+
+<p>Incidentally, if you like hack days and you like science, you might be interested in finding out more about what's being planned for this inaugural <a href="http://sciencehackday.com/">Science Hack Day</a>. Meanwhile, here's the idea:</p>
+
+<p>Given an HTML document containing tables of <a href="http://en.wikipedia.org/wiki/Solar_system_model">solar system model</a> data, build a stylesheet (using CSS3 transforms and transitions/animations) that can present it as an animated model of the solar system:</p>
+<ul>
+<li>Would be interesting to see what could be done with only HTML/CSS, but realistically might need some scripting to make it a bit more sane. For example, to read data from the table in the first-place.</li>
+<li><a href="http://webkit.org/blog-files/3d-transforms/morphing-cubes.html">Cubes</a> rather than circular images of planets, so we can spin them independently at correct speeds. Might not look so pretty, but means we can aim for a more accurate model. Could use more than 6 faces to get a more 'rounded' shape, eventually it would look spherical I guess.</li>
+<li>Not sure if reproducing the true elliptical orbits of planets is going to be easy, or even possible. They might just have to be circular, at least in v1.
+<ul>
+<li><a href="http://blog.andyhume.net/solar-system-model-in-css#comment-1838">Matthew below</a> has a possible solution for that: using a scale transform to stretch the x-axis.</li>
+</ul></li>
+<li>Allow for rotating the entire canvas so you can zoom in and out and look at things from different angles using keyboard or mouse controls.</li>
+<li>Need to work out solution for scaling distances vs planets sizes independently so we can fit it on a screen. Presumably there's prior-art for this. Would be nice to have a few different scaling methods.</li>
+<li>Could do a canvas version too, but probably less fun and actually pretty simple for someone with decent programmatic drawing skills (not me).</li> 
+</ul>
+
+<p>Finally, here's the extremely crappy and ill-conceived 10 minute non-starting point, which I've cunningly entitled <a href="http://andyhume.net/science/planets.htm">Tiny dots going round a small dot</a> (Webkit only of course). No, none of the table's data is used in the animations, all the values are hard-coded in CSS, and it's almost not worth showing. But anyway, if it was all done and dusted we'd have nothing to do on hack day.</p>
+
+<p>See you there?</p>

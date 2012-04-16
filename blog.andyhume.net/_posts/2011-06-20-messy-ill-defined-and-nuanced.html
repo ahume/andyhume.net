@@ -1,0 +1,30 @@
+--- 
+layout: post
+title: Messy, ill-defined, and nuanced
+published: true
+meta: 
+  _edit_last: "2"
+tags: []
+
+type: post
+status: publish
+---
+<p>A few weeks ago, Andy Budd <a href="http://twitter.com/andybudd/status/77740241498284033">tweeted</a>, <q>One of the biggest problems in this industry is the assumption that complex, messy problems can have simple, well defined solutions.</q>, and <a href="http://twitter.com/andybudd/status/77749546016456704">then</a>, <q>Platonic idealism is a noble cause. However at its best it's unrealistic and at its worst, actively damaging.</q></p>
+
+<p>Okay, here's the old adage: Good developers are lazy.</p>
+
+<p>I understand the sentiment behind this. Good developers want to fix problems once, forever, then go to the pub. They want to write maintainable code, so they can update it easily when the requirements change, then go to the pub. They want to devise a model that captures every permutation of the design, then tweak the inputs and watch as everything goes beautifully according to plan.</p>
+
+<p>This <em>is</em> noble, and is the right approach to building software and programming computers. But it's only half the story.</p>
+
+<p>The problem is, to <a href="http://www.cc2e.com/">quote Steve McConnell</a>: nobody is really smart enough to program computers. Rarely is it as simple as you think it is, and rarely have you devised a model that captures every permutation.</p>
+
+<p>There <em>is</em> a model that captures every permutation, and every nuance; but <strong>you're not smart enough to figure it out</strong>. Even if you were, it would be ten times the amount of code and much more difficult to understand and explain. It wouldn't be worth the time and effort because your simple model is probably 99% good, it just needs a few well-understood, well-coded and well-documented exceptions. The kind of approach this theoretically 'good developer' would rather not take.</p>
+
+<p>In my experience this problem is particularly prevalent in UI code. A user interface is designed to interact directly with humans. Human minds work at a level of complexity that you aren't able to easily model in code (duh). Designers spend a lot of time figuring out how these UIs should behave. They try and understand a user's mental model of how something works, but they also test it and look at the behaviours that real people exhibit. Real people exhibit behaviours that often seem unintuitive. It's sometimes hard to believe that people behave in particular ways until you actually see it happening.</p>
+
+<p>This is why it's a good idea to invite your developers to usability testing. If the developers aren't exposed to why a UI is designed in a particular way, they'll push back in favour of their simpler more consistent and understandable model of how it should work. "Well, the data once normalised is clearly structured like this, so why on earth would you expose it like that?".</p>
+
+<p>At Microsoft (where developers generally hold the balance of power anyway) I've seen particularly influential lead developers simply override the decisions of UX designers because a certain nuanced interaction doesn't fit the way they've modelled it in code. This is not the right thing to be happening, and if you ever catch-me doing it then point me right back here.</p>
+
+<p>Good developers work to an ideal, but they know when and how to work around the exceptions.</p>

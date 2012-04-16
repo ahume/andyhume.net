@@ -1,0 +1,23 @@
+--- 
+layout: post
+title: PHP and MySQL configuration in OS X 10.4.4
+published: true
+meta: 
+  _edit_last: "2715"
+tags: []
+
+type: post
+status: publish
+---
+A little tip for those of you running PHP and MySQL services on Os X's built in web server.
+
+After the update to 10.4.4 you may find that PHP and MySQL lose the ability to communicate with one another on localhost. As far as I can tell, the socket file has been moved in the update and PHP is looking for it in the wrong place.
+
+If you are getting a MySQL error along the lines of 'Can't connect to MySQL server localhost through socket /var/mysql/mysql.sock', then this is probably what the problem is.
+
+The easiest way to fix this is create the directory that PHP is looking for, and link it to the old one. That is easily done at the command line by entering the following.
+
+<code>
+$ sudo mkdir /var/mysql
+$ sudo ln -s /tmp/mysql.sock /var/mysql/mysql.sock
+</code>

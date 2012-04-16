@@ -1,0 +1,32 @@
+--- 
+layout: post
+title: Responsive by default
+published: true
+meta: 
+  _edit_last: "2"
+tags: []
+
+type: post
+status: publish
+---
+<p>If you think about it, responsive layout is not a new thing. Open a simple HTML file in a web browser, and the content automatically adapts to fit the width of that browser. The web is responsive on its own&mdash;by default. It's us that's been breaking it all these years by placing content in fixed-width containers. Despite the fact that people have been <a href="http://web.archive.org/web/20070517093217/http://thedredge.org/2005/09/a-list-apart/">arguing against this for years</a> (please excuse the uncool URI).</p>
+
+<p>Mark Boulton describes current thinking on this as a <a href="http://www.markboulton.co.uk/journal/comments/the-difference-between-a-trend-and-a-shift">shift, rather than a trend</a>. I prefer to think of it as a trend, but a trend that is coming to an end. Just as the Web Standards movement ended the unsatisfactory trend of presentational HTML and tables for layout, responsive layout ends the now old-school trend of designing for a 960px (or whatever) width Photoshop page.</p>
+
+<p>The web has a way of fixing its bad habits over time. It's smart like that.</p>
+
+<h3>What is responsiveness?</h3>
+
+<p>Responsiveness is what a website does when it's loaded into an unknown browser on an unknown device by an unknown individual. It's how you deal with "the most hostile software development environment ever imagined" (via <a href="http://yuiblog.com/crockford/">Douglas Crockford</a>). Like progressive enhancement it's a strategy that frees you to work <em>with</em> the web rather than fight against it.</p>
+
+<p>Optimising for One Web, instead of specific browsers/devices/individuals, is an ideal that is a profound part of being a web developer. It has to be at the heart of everything you design and build. If not, you're doomed to write code and support an ever increasing array of client platforms from whatever the browser landscape throws at you in the coming years. Good luck with that.</p>
+
+<p>You'll note however, that I describe it as an ideal. It's important to understand and accept that current technology and methodology won't always get you where you need to be. Pretending we can create a perfect solution just because we've discovered media queries is as dangerous as ignoring responsive design altogether.</p>
+
+<p>To begin with there are a bunch of things we <a href="https://github.com/Modernizr/Modernizr/wiki/Undetectables">can't easily feature detect</a>. Then there are bugs and quirks in the way browsers implement some of the newer technologies which make it difficult to work with them cross-browser. Then, you might find performance is so important that you want to <a href="http://infrequently.org/2011/01/cutting-the-interrogation-short/">feature detect completely through UA parsing</a> (that's an edge-case if ever there was one, but it's legitimate).</p>
+
+<p>Being a web <em>application</em> does not excuse you from these principles. I work mostly on content based sites these days, but that's not my background. For the bulk of my career I worked on applications with 30-40,000 lines of JavaScript. The non-legacy bits that I was in charge of were built with the principles of progressive enhancement, and they worked on my fat desktop, my skinny mobile (when the CPU could keep up), and they worked when JavaScript was disabled. It wasn't perfect, but that ideal we were <em>aiming</em> for normally kept us on course, and for the size of application we were dealing with we had a pretty maintainable and scalable codebase that lasted a good number of years and lived through a good number of browser and device releases (including the first generation iPhone).</p>
+
+<p>The best web developers understand the medium, and work to its ideals. But they know what the current limits are and where they need to work around the problem in a way that <a href="http://blog.andyhume.net/messy-ill-defined-and-nuanced">gets the job done</a> for 95% of users, even if it means a one-off well-understood browser detect.</p>
+
+<p>For me responsive design is another example of web design <a href="http://www.alistapart.com/articles/dao/">getting back some of its Dao</a>. That's why it's <a href="http://www.lukejones.me/post/6651505197/responsive-web-design">not an added extra</a> or a feature. It's core to what you do.</p>

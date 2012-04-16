@@ -1,0 +1,16 @@
+        <header>
+        <div class="header primary">
+        <a class="logo" href="http://andyhume.net">
+        <h1>andy<b>hume.net</b></h1>
+        <p class="intro">Thoughts and commentary on web development</p>
+        </a>
+        </div><!-- /.header -->
+    </header>
+    <nav class="primary primary-nav">
+        <ul>
+            <li{% if page.section == 'home' %} class="selected"{% endif %}><a href="http://andyhume.net">Home</a></li>
+            <li{% if page.type == 'post' %} class="selected"{% endif %}><a href="http://blog.andyhume.net">Blog</a></li>
+            <li{% if page.section == 'about' %} class="selected"{% endif %}><a href="http://andyhume.net/about/">About</a></li>
+            <li{% if page.section == 'contact' %} class="selected"{% endif %}><a href="http://andyhume.net/contact/">Contact</a></li>
+        </ul>
+    </nav>

@@ -1,0 +1,24 @@
+--- 
+layout: post
+title: "Yeah, yeah... I know: Audi."
+published: true
+meta: 
+  _edit_last: "2715"
+tags: []
+
+type: post
+status: publish
+---
+It was supposed to be some kind of chain across the top of the logo, which I thought might fit quite well in to the whole Dredge look, but the 3D nature of the <em>links</em> makes it look a little too much like some other famous set of rings. In fact four of the first five people to see this redesign have said <a href="http://www.audi.co.uk/">Audi</a>to me within 10 seconds of clapping eyes on the thing. So I think it's going to go.
+
+This begins to establish the idea that the design isn't quite finished yet. It isn't. The truth is I wasn't planning on pushing this out yet, but... somehow it happened.
+
+The story begins on an extremely sunny Sunday afternoon. With a few cans of <a href="http://www.oldspeckledhen.co.uk/index2.html">Old Speckled Hen</a> by my side, and a few more in the fridge, I set about rolling out some back-end preparations for the redesign including a few database tweaks and a shiny new <a href="http://wordpress.org">Wordpress</a>installation. Despite my meticulous planning, I managed to bodge it tragically and the site was down for a few hours while I tried to recover things. I didn't have a local back-up of the old site, that being on my laptop some 20 miles away in the centre of London. So eventually I decided to just push out the redesign---along with a fully functional Wordpress install---in all it's unfinished and unglorious splender.
+
+A few things I'm trying out with the comments are probably worth mentioning. Firstly, commentors here have their name, URL and email marked up using the <a href="http://microformats.org/wiki/hcard">hcard</a>microformat. Now, whether this is a good idea or not I'm waiting for someone to tell me. The possibility of having numerous instances of the same hcard on one page may not be desirable, and although it doesn't appear to be in violation of the specification, I wouldn't be surprised if someone came up with a reason why it's a bad idea.
+
+The second and more obvious thing, is the use of <a href="http://gmpg.org/xfn/" title="XHTML Friends Network">XFN</a>. The way I see it working is as follows. When someone comments on my blog, I add some XFN values for them to the database. These are then pulled into the <code>rel</code> tag within the link to their site, and also added for all to see underneath the <a href="http://www.gravatar.com/">gravatar</a>.
+
+Once again, maybe this is a really messy way of implementing a seriously cool concept, and perhaps it's undesirable to have more than one instance of the same URL and <code>rel</code> value on a single page. If so it would be trivial to add the <code>rel</code> tag to each commentor only on the first comment they make, but I'll see how it goes for now.
+
+If anyone has any comments about this please feel free to leave them below. Anyhow, I know you're all dying to try out the comments now to see if I've already added you to my <code>rel</code> database. I'm quite a friendly guy. (Hint: Keep your email address consistent---the same as your gravatar email).

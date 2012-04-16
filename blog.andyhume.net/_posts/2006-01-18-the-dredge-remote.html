@@ -1,0 +1,24 @@
+--- 
+layout: post
+title: The Dredge Remote
+published: true
+meta: 
+  _edit_last: "2715"
+tags: []
+
+type: post
+status: publish
+---
+In a ill-disguised rip-off of the original and best, <a href="http://elsewhere.adactio.com">Adactio Elsewhere</a>, I have put together my own little aggregating web application. I call it <a href="http://remote.thedredge.org">The Dredge Remote</a>, and this is Version 1.
+
+The idea, if you haven't come across it yet, is to bundle together your bits and pieces from around the web in one unified and smooth, XML and Ajax powered bundle. Currently I have photos from <a href="http://flickr.com">Flickr</a>, links from <a href="http://del.icio.us/">Del.icio.us</a>, events from <a href="http://upcoming.org">Upcoming</a>, and an RSS reader for my favourite weblogs. It's a great way to learn about the APIs from these different services, and I hope to build more as others become available. If you've got any suggestions...
+
+<h2>How it's built</h2>
+
+The Dredge "Remote" is built with a whole bundle of technologies. At the back end is PHP and MySQL, which together look after parsing and caching the XML that is pulled in from around the web. I'm using PHP 5 and it's ridiculously simple-to-use XML functions.
+
+Out front on your browser is XHTML, CSS and a fairly hefty amount of Javascript. The Javascript is completely unobtrusive, and is not required to get to any of the content; but if you do have it available it should do a lot to speed up and increase usability of the site.
+
+As I say, it's version 1 and it has bugs which need ironing out - not least the interface which could do with being a lot more than simply lots of lists displayed inline.
+
+Incidentally, if you're using Internet Explorer 6 (or indeed less), prepare for an experience which is slightly more on the shabby side. Technologies used which your sad five year old browser cannot handle include, CSS 2.1 and Alpha transparent PNG images. I would recommend downloading <a href="http://getfirefox.com">Firefox</a>.

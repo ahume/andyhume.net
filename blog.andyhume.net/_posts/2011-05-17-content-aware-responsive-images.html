@@ -1,0 +1,30 @@
+--- 
+layout: post
+title: Content aware responsive images
+published: true
+meta: 
+  _edit_last: "2"
+tags: []
+
+type: post
+status: publish
+---
+<p>Towards the end of last year, <a href="http://www.scottjehl.com/">Scott Jehl</a> and the <a href="http://filamentgroup.com/">Filament Group</a> released a small JavaScript library which experimented with the idea of "Responsive Images". As <a href="http://filamentgroup.com/examples/responsive-images/">the demo explains</a> it can be used to load optimized, contextual image sizes in responsive layouts depending on the screen resolution. It cleverly uses HTML's <code>base</code> element to redirect all initial image requests to a small 1x1 pixel place holder, so as to avoid loading more than one image.</p>
+
+<p>This was principally developed to allow mobile devices to download smaller and more light-weight images, choosing which image to load based on the screen resolution of the device. As an approach this is useful in a very practical way, but it's also an example of where one feature of a device is used to make assumptions about another feature. In this case, it's the assumption that a small screen resolution means a low-bandwidth or low-speed connection.</p>
+
+<p>This itself is driven by the sometimes misleading assertion that, "Mobile users need to save bandwidth". That may be the case, but there is another rule that trumps it: "<strong>All users</strong> need to save bandwidth". Performance matters, a lot, across every type of device and across every type of network connection.</p>
+
+<h3>A content first approach</h3>
+
+<p>Recently I've worked on a number of liquid width sites that have images styled at 100% width. This means the image could be displayed at varying sizes depending on the size of the browser's viewport. This often leads to a scenario where quite high resolution images are loaded into the page for users that are only ever going to see squashed versions of the images.</p>
+
+<p>The content driven approach to fixing this is to decide which image to load based on <strong>whether the image will be stretched beyond its true pixel width</strong>. If you stretch an image beyond its true width it begins to look pixelated or blurry. In this scenario, we want to load in a higher resolution version of the image.</p>
+
+<p>I like the theory behind this approach because it embraces the principles of responsive design and applies them based on the <strong>best possible display of content</strong> rather than on essentially arbitrary and device specific pixel widths.</p>
+
+<p>The code (forked from the Filament Group's starting point) is <a href="https://github.com/ahume/Responsive-Images">available on Github</a>.</p>
+
+<p>At the moment, I would class it as proof-of-concept rather than bullet-proof, but I think it's an interesting approach which is certainly worth sharing and discussing at this point.</p>
+
+<p>Having said that, there is a small example of it working in the wild. This page for the <a href="http://brightondigitalfestival.co.uk/">Brighton Digital Festival</a> contains images which respond in various ways to the size of the browser's viewport. This is an interesting example because the images don't always get smaller as the viewport gets smaller. Start with a wide browser window and the images are actually quite small. As you make the viewport smaller you will see the images decrease gradually in size and then jump to a larger size as the layout's media queries kick in. If you refresh the page at this point you should see higher resolution images load in place of the original images.</p>

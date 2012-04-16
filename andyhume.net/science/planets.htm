@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<style>
+body {
+    background-color:#000;
+    color:#333;
+    margin-left:50%;
+    margin-top:25%;
+}
+th {
+    display:none;
+}
+tr {
+    text-indent:-9999px;
+    position:absolute;
+    -webkit-transform-origin:0 0;
+}
+#sun {
+    -webkit-transform:translate(-2px,-2px);
+    width:4px;
+    height:4px;
+    background-color:yellow;
+}
+
+/* Distance of 2 * 5 / 2 =  5px */
+/* Speed of 87/365 * 5 = 1s */
+#mercury {
+    width:2px;
+    height:2px;
+    background-color:red;
+    -webkit-animation:spin-mercury 1s infinite linear;
+}
+@-webkit-keyframes spin-mercury {
+    from { 
+        -webkit-transform:rotateZ(0) translate(5px,0);
+    }
+    to {
+        -webkit-transform:rotateZ(-360deg) translate(5px,0);
+    }
+}
+
+/* Distance of 4 * 5 / 2 =  10px */
+/* Speed of 224/365 * 5 = 3s */
+#venus {
+    width:2px;
+    height:2px;
+    background-color:purple;
+    -webkit-animation:spin-venus 3s infinite linear;
+    
+}
+@-webkit-keyframes spin-venus {
+    from { 
+        -webkit-transform:rotateZ(0) translate(10px,0);
+    }
+    to {
+        -webkit-transform:rotateZ(-360deg) translate(10px,0);
+    }
+}
+
+/* Distance of 5 * 5 / 2 =  13px */
+/* Speed of 365/365 * 5 = 5s */
+#earth {
+    width:2px;
+    height:2px;
+    background-color:blue;
+    -webkit-animation:spin-earth 5s infinite linear;
+}
+@-webkit-keyframes spin-earth {
+    from { 
+        -webkit-transform:rotateZ(0) translate(13px,0);
+    }
+    to {
+        -webkit-transform:rotateZ(-360deg) translate(13px,0);
+    }
+}
+
+/* Distance of 7 * 5 / 2 =  18px */
+/* Speed of 686/365 * 5 = 9.3s */
+#mars {
+    width:2px;
+    height:2px;
+    background-color:red;
+    -webkit-animation:spin-mars 9.3s infinite linear;
+}
+@-webkit-keyframes spin-mars {
+    from { 
+        -webkit-transform:rotateZ(0) translate(18px,0);
+    }
+    to {
+        -webkit-transform:rotateZ(-360deg) translate(18px,0);
+    }
+}
+
+/* Distance of 25 * 5 / 2 =  62px */
+/* Speed of 11.8 * 5 = 59s */
+#jupiter {
+    width:4px;
+    height:4px;
+    background-color:red;
+    -webkit-animation:spin-jupiter 59s infinite linear;
+}
+@-webkit-keyframes spin-jupiter {
+    from { 
+        -webkit-transform:rotateZ(0) translate(62px,-2px);
+    }
+    to {
+        -webkit-transform:rotateZ(-360deg) translate(62px,-2px);
+    }
+}
+
+/* Distance of 45 * 5 / 2 = 112px */
+/* Speed of 29.5 * 5 = 147s */
+#saturn {
+    width:3px;
+    height:3px;
+    background-color:green;
+    -webkit-animation:spin-saturn 147s infinite linear;
+}
+@-webkit-keyframes spin-saturn {
+    from { 
+        -webkit-transform:rotateZ(0) translate(112px,-1px);
+    }
+    to {
+        -webkit-transform:rotateZ(-360deg) translate(112px,-1px);
+    }
+}
+
+/* Distance of 92 * 5 / 2 = 230px */
+/* Speed of 84 * 5 = 420s */
+#uranus {
+    width:2px;
+    height:2px;
+    background-color:purple;
+    -webkit-animation:spin-uranus 420s infinite linear;
+}
+@-webkit-keyframes spin-uranus {
+    from { 
+        -webkit-transform:rotateZ(0) translate(230px,0);
+    }
+    to {
+        -webkit-transform:rotateZ(-360deg) translate(230px,0);
+    }
+}
+
+/* Distance of 144 * 5 / 2 = 360px */
+/* Speed of 164.8 * 5 = 824s */
+#neptune {
+    width:2px;
+    height:2px;
+    background-color:gold;
+    -webkit-animation:spin-neptune 824s infinite linear;
+}
+@-webkit-keyframes spin-neptune {
+    from { 
+        -webkit-transform:rotateZ(0) translate(360px,0);
+    }
+    to {
+        -webkit-transform:rotateZ(-360deg) translate(360px,0);
+    }
+}
+
+/* Distance of 190km * 5 / 2 = 475px */
+/* Speed of 247.7 * 5 = 1238.5s */
+#pluto {
+    width:2px;
+    height:2px;
+    background-color:grey;
+    -webkit-animation:spin-pluto 1238.5s infinite linear;
+}
+@-webkit-keyframes spin-pluto {
+    from { 
+        -webkit-transform:rotateZ(0) translate(475px,0);
+    }
+    to {
+        -webkit-transform:rotateZ(-360deg) translate(475px,0);
+    }
+}
+
+</style>
+    
+</head>
+<body>
+    <!-- http://www.enchantedlearning.com/subjects/astronomy/planets/
+        http://en.wikipedia.org/wiki/Solar_system_model -->
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Distance</th>
+        <th>Year</th>
+    </tr>
+    <tr id="sun">
+        <td>Sun</td>
+        <td>0</td>
+        <td></td>
+    </tr>
+    <tr id="mercury">
+        <td>Mercury</td>
+        <td>2</td>
+        <td>0.2</td>
+    </tr>
+    <tr id="venus">
+        <td>Venue</td>
+        <td>4</td>
+    </tr>
+    <tr id="earth">
+        <td>Earth</td>
+        <td>5</td>
+        <td>1</td>
+    </tr>
+    <tr id="mars">
+        <td>Mars</td>
+        <td>7</td>
+    </tr>
+    <tr id="jupiter">
+        <td>Jupiter</td>
+        <td>24</td>
+    </tr>
+    <tr id="saturn">
+        <td>Saturn</td>
+        <td>45</td>
+    </tr>
+    <tr id="uranus">
+        <td>Uranus</td>
+        <td>92</td>
+    </tr>
+    <tr id="neptune">
+        <td>Neptune</td>
+        <td>144</td>
+    </tr>
+    <tr id="pluto">
+        <td>Pluto</td>
+        <td>190</td>
+    </tr>
+</table>
+    
+    
+    
+    
+</body>
+</html>

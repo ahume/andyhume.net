@@ -1,0 +1,81 @@
+--- 
+layout: post
+title: Event delegation without a JavaScript library
+published: true
+meta: 
+  _edit_last: "2"
+tags: []
+
+type: post
+status: publish
+---
+<p>Most of the articles and examples I've seen of handling events with event delegation use some kind of JavaScript library. Chris Heilmann's <a href="http://icant.co.uk/sandbox/eventdelegation/">much cited article</a> uses the <a href="http://developer.yahoo.com/yui/">YUI library</a>, and <a href="http://www.danwebb.net/">Dan Webb</a>'s presentation at @media last month used the <a href="http://www.prototypejs.org/">Prototype</a> framework.</p>
+
+<p>For those of us just building a bog standard JavaScript application without one of these fancy libraries, it's worth taking a look at how event delegation works in the real world. It sounds more complicated than handling events in the standard way, but it really isn't.</p>
+
+<p>For those that haven't come across the term before, event delegation refers to the technique of reducing the number of event listeners attached to the document by attaching just one listener to a containing element and testing in the handler where that event has bubbled up from.</p>
+
+<p>Let me give you an example from the Multimap website. The main navigation on the site includes 6 links across the top, 4 of which require event handlers to alter the href attribute of the link when it is clicked. These 4 links have a class attribute of &#8216;bundle&#8217;.</p>
+
+<p>Traditionally you might approach that situation in the following way.</p>
+
+<pre><code>
+var MMNav = {
+	init: function() {
+		var nav = document.getElementById('mainNav');
+		var links = nav.getElementsByTagName('a');
+		for ( var i = 0, j = links.length; i < j; ++i ) {
+			if ( links[i].className == 'bundle' ) {
+				links[i].onclick = this.onclick;
+			}
+		}
+	},
+	onclick: function() {
+		this.href = this.href + '?name=value;
+		return true;
+	}
+}
+</code></pre>
+
+<p>There's a lot of overhead in the above code. First of all the <code>getElementsByTagName</code> loops through every DOM node in the <code>mainNav</code> element to find all the links. We then have to loop through them again manually to check the class names of the links. That's wasted CPU cycles at every stage.</p>
+
+<p>How about if we could just attach one event listener to the <code>mainNav</code> element and then capture any click on the links within that?</p>
+
+<pre><code>
+var MMNav = {
+	init: function() {
+		var nav = document.getElementById('mainNav');
+		nav.onclick = this.onclick;
+	},
+	onclick: function(e) {
+		if ( e.target.className == 'bundle' ) {
+			e.target.href = e.target.href + '?name=value';
+		}
+		return true;
+	}
+}
+</code></pre>
+
+<p>The simplicity and elegance of this should be pretty clear, but it has a number of performance benefits as well:</p>
+
+<ul>
+<li>The less event listeners attached to a document the better. They all take up memory and in extreme circumstances can slow browsers down considerably.</li>
+<li>There is much less code running on page load. One of the major issues with complex web applications is the wait on &#8216;load&#8217; for JavaScript to execute and set up the document. The two loops in the first example are nowhere to be seen in the second example.</li>
+<li>&#8216;Just in time&#8217; execution. The second example does a little bit more work when the event handler is executed, but this is better than doing that work on &#8216;load&#8217; when we don&#8217;t even know if the resulting handler is going to be executed or not.</li>
+<li>It&#8217;s less code. Less code means less maintenance, and less bandwidth for both your web server and your users.</li>
+</ul>
+
+<p>There&#8217;s one caveat to the above code. Getting the target element of the event is not always as simple as using <code>e.target</code>. In Internet Explorer you need to use <code>e.srcElement</code>. The easiest way of dealing with this is to use a small <code>getEventTarget</code> function. Below is what I use.</p>
+
+<pre><code>
+function getEventTarget(e) {
+    var e = e || window.event;
+    var targ = e.target || e.srcElement;
+    if (targ.nodeType == 3) { // defeat Safari bug
+            targ = targ.parentNode;
+    }
+    return targ;
+}
+</code></pre>
+
+<p>Event delegation is a fairly well established practice when dealing with large numbers of event handlers (eg, a map with hundreds of points, all with click events attached), but in my opinion it should be the default way you go about adding and handling events. It&#8217;s a simpler, more intuitive, and more optimized way of dealing with a common pattern in client-side scripting, and it doesn&#8217;t require thousands of lines of a JavaScript library for it to be useful to you.</p>

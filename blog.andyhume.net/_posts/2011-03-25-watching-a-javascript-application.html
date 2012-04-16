@@ -1,0 +1,39 @@
+--- 
+layout: post
+title: Watching a JavaScript application
+published: true
+meta: 
+  _edit_last: "2"
+tags: []
+
+type: post
+status: publish
+---
+<p>When we had new people joining at Multimap (or 'onboarding' at Microsoft) one of the initial big hurdles for them was learning the ins and outs of the approximately 30,000 lines of JavaScript that powered the site.</p>
+
+<p>One thing I used to recommend people do was to turn on a little event logging switch we had in the code that logged to the console every event fired. The application made heavy use of custom events, so by watching these events occur in real time as you navigate and use the application, you can get a pretty good insight into what is going on in the guts of it. For example, a typical output might look like:</p>
+
+<p><pre><code>dragStart
+dragEnd
+mapMove
+locationUpdate
+geocodeSend
+geocodeReceive
+adUpdate
+searchSend
+searchReceive
+panelOpen</code></pre></p>
+
+<p>Not only does this give you a broad overview of what might be going on, but knowing the names of the events gives you a starting point for jumping into the code. You can now search and find the module that triggers that event, as well as every piece of code that is listening for it and waiting to do stuff.</p>
+
+<p>Recently I wanted to do the same thing in another JavaScript application which is using <a href="http://jquery.com/">jQuery</a> to do its custom events.</p>
+
+<div class="codex"><code>var old_trigger = jQuery.event.trigger;
+jQuery.event.trigger = function(event, data, elem) {
+    console.log(event);
+    old_trigger.apply(this, arguments);
+}</code></div>
+
+<p>The above code monkey patches jQuery's <code><a href="http://api.jquery.com/trigger/">trigger</a></code> event and logs the name of the event to the console. It doesn't work for the browser's built in events, (which is probably fine as you generally know what browser events are occurring), but it does work for all of jQuery's built in events and any custom events that you trigger yourself.</p>
+
+<p>I think this is a helpful way of starting to learn a codebase. In this case, it's not so much new people joining that might benefit, but a client's development team who'll be taking this over eventually.</p>

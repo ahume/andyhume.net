@@ -1,0 +1,33 @@
+--- 
+layout: post
+title: Hash fragments are not deprecated
+published: true
+meta: 
+  _edit_last: "2"
+tags: []
+
+type: post
+status: publish
+---
+<p>HTML 5 introduced a much improved API to the browser's history object. Specifically <code>history.pushState()</code> and <code>history.replaceState()</code> which allow developers to manipulate the contents of the history stack, and to detect changes to the active history entry using a new window event, <code>popstate</code>.</p>
+
+<p>This is one of my favourite features which browsers are starting to support (including IE 10), because it allows us to throw away the large and non-trivial code typically used to store the state of the current page in the hash fragment. Before this new API, the only way of manipulating the URL was to update the fragment after the hash, and you'll have likely seen particularly interactive web applications doing exactly this, including current versions of <a href="http://gmail.com">Gmail</a>.</p>
+
+<p>The first place I saw the new history API really well implemented was <a href="http://github.com">Github</a>, where browsing a repository only loads the portions of the page which show the directory tree, and the rest of the page stays in its current state. This improves performance dramatically for a few reasons. Firstly, much smaller chunks of data are being sent over the wire, and secondly the browser doesn't have to parse, reflow, and repaint as much of the page, or re-execute page-load JavaScript, etc&hellip;</p>
+
+<p>The history API is pretty much win win in my book. Except when it's used in the wrong scenario.</p>
+
+<p>To understand what I mean you need to remember a little bit about the semantics of URIs, and resource-oriented principles. Without getting too bogged down, a URL points at a distinct resource or object, and a hash fragment (or fragment identifier) points to a particular location within that resource.</p>
+
+<p>This leads to a couple of important principles:</p>
+
+<h3>If you're updating the URL with pushState then that new URL must point at a new and distinct resource that exists on your server.</h3>
+
+<p>Once the URL has been updated and you refresh the browser, a document which reflects that changed URL must be returned. It's not correct to return a page identical to the last and then do some client-side routing in JavaScript to setup the state of the page. That's no different to reading the hash fragment and setting up state. In fact it's worse, because you are exposing many URLs on the web which all return exactly the same document (apparently Google doesn't like that either). It's worse than a #! URL in many ways because it implies that a distinct resource will be returned when in reality it will not.</p>
+
+<h3>If you're updating the state of a single page, continue to use a hash fragment to capture state.</h3>
+
+<p>This is particularly true if all you're doing is exposing or drawing attention to a specific part of a document (eg, opening an accordion widget, or sliding through a carousel). It's much more painful working with hash fragments than it is the history API, but there are good and well tested libraries available for doing this now, and I believe the semantic distinction is important to make.</p>
+<div style="font-size: 90%"><strong>Update:</strong> As <a href="http://twitter.com/friedcell">@friedcell</a> has pointed out to me, there's nothing to stop you using <code>pushState</code> or <code>replaceState</code> to update the fragment, rather than falling back to JavaScript to achieve something similar.</div>
+
+<p>It's true that URLs are an important interface for humans using your web site, and that friendly structured URLs look nicer than those with query strings and hash fragments. But just as important are the principles of REST, of resource-oriented architectures, and of URL design. These are the things the web is built on, and if you start messing with them, the web will burn you.</p>

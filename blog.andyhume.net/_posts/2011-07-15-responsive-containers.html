@@ -1,0 +1,38 @@
+--- 
+layout: post
+title: Responsive Containers
+published: true
+
+type: post
+status: publish
+---
+<p>Media queries are clearly a huge step forward for responsive layouts. Letting you apply different CSS based on the width of the device or the viewport opens up all sorts of possibilities for adapting content to best fit a given space. Media queries work really well when you want to adjust the core layouts of the site, but they're less suited to changing styles at a smaller more granular level.</p>
+
+<p>When I'm building a specific front-end component, I take great care to make sure it is completely decoupled from any particular layout. It's not concerned with the width at which it might be displayed at: it could be moved from a small side bar into a larger main column and its width simply adapts to whatever its parent element constrains it to. At <a href="http://clearleft.com">Clearleft</a> we take this as far as building all the content components of a site outside of any layout constraints whatsoever.</p>
+
+<p>However, there are occasions when you might want to adapt the styles within the component itself depending on the width at which it is currently being displayed at. There's a very simple example on the <a href="https://fontdeck.com/register">Fontdeck sign up page</a> where the form labels pop up above the text inputs if the viewport is below a certain width.</p>
+
+<p>The example on Fontdeck uses a media query to adjust the display of the label elements when the viewport is more than 1000px, but surely there's a better way than that? For example, if I moved that form into the right hand column, wouldn't it be better if it knew what width it was being rendered at and automatically adjusted its layout to the narrower width version. In other words, the layout of the component responded based on the <strong>width of its containing element</strong>, rather than on the essentially arbitrary width of the viewport.</p>
+
+<p>For fun, here's some made-up syntax (which <a href="http://adactio.com">Jeremy</a> has dubbed 'selector queries') that describes this:</p>
+
+<div class="codex"><code>.signup-form @selector(min-width: 300px) {
+    .label {
+        display: block;
+    }
+}</code></div>
+
+<p>I think there's a valid use case for this capability. Being able to adjust a single component based on its current layout is extremely powerful. It allows more re-usability of code, and it encourages designers to think about how an individual component adapts on its own, outside of any given layout. Decoupling individual content components from their layout is a key principle of <a href="http://oocss.org/">OOCSS</a>, and this encourages that principle.</p>
+
+<p>On a current development project I'm using a JavaScript technique to achieve nearly the same result. It uses a small script (about 1.5k minified) to add class names to elements depending on their width.</p>
+
+<p>Here's how you use it:</p>
+
+<div class="codex"><code>&lt;div class="signup-form" data-squery="min-width:300px=wide max-width:10em=small"&gt;
+     &lt;label for="name">Name&lt;/label
+     &lt;input type="text" id="name /&gt;
+&lt;/div&gt;</code></div>
+
+<p>The above code tells the JavaScript to apply a class of <code>wide</code> when the elements <code>offsetWidth</code> is greater than 300 pixels and a class of <code>small</code> when it is less than 10 ems. It looks a little odd of course. I'd rather not have that presentational information in a data attribute (it's hardly data)&mdash;but of course the best place for all of this would be in CSS, so how it's exposed in the markup is kind of a moot point right now.</p>
+
+<p>The <a href="https://github.com/ahume/selector-queries/">script is on Github</a>, along with an <a href="http://ahume.github.com/selector-queries/">example test page</a> (yes, try resizing the browser and changing text size). It works in all modern browsers back to and including IE6.</p>

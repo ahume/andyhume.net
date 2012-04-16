@@ -1,0 +1,37 @@
+--- 
+layout: post
+title: Introducing microformats
+published: true
+meta: 
+  _edit_last: "2715"
+tags: []
+
+type: post
+status: publish
+---
+As the "hype" encircling <a href="http://microformats.org">microformats</a>grows, I want to try and clear up some of the confusion over what they are, and what they aren't. I'm not self proclaiming my expertise on this subject, but there does appear to be a lot of confusion and misunderstanding surrounding these concepts and the potential they hold for the semantic web.
+
+<h3>So why all this excitment?</h3>
+
+Microformats aren't that new. Many people have probably heard of the <a href="http://gmpg.org/xfn/">XHTML Friends Network</a> (XFN), which was one of the very early specifications in this type of mould. The reason we're talking about it now, is because only a few weeks ago, the site <a href="http://microformats.org">microformats.org</a> went live with a lovely shiny <a href="http://simplebits.com">Cederholm</a> design, and the hype machine went in to overdrive. Be honest, how many people reading this went to look at that site becuase they were told it was a <a href="http://simplebits.com">Simple Bits</a>design? Yep, it's been hyped.
+
+I'm not really sure what people where expecting when the were hurded over to this new site. My guess is that many were rather surpised to find that this exciting, powerful, <em><a href="http://meyerweb.com/eric/thoughts/2005/06/21/microformatsorg/">change the way we build and use the Web</a></em> technology was just XHTML with some meaningful <code>class</code> attributes.
+
+However, it is these features that make the technology so appealing. Something I have been reminding people in various blog comments around the web is a Tim Berners-Lee quotation which is cited on the <a href="http://gmpg.org/xfn/background">XFN website</a>.
+
+<blockquote>
+<p>The trick... is to make sure that each limited mechanical part of the Web, each application, is within itself composed of simple parts that will never get too powerful.</p>
+<cite>&amp;mdash;Tim Berners-Lee, Weaving The Web</cite>
+</blockquote>
+
+The simplest concepts of the web are often the most powerful. The web exists becuase of the most basic and simplistic concept of all - the hyper link, and it is often easy to forget this during the excitement of advanced technologies such as CSS and Ajax.
+
+The microformats website introduces microformats in quite a 'speccy' way. That is to say, there is not so much about the social and communicative implications as there is technical discussion, such as the <a href="http://microformats.org/wiki/hcard">hcard</a> and <a href="http://microformats.org/wiki/hcalendar">hcalendar</a>specifications. No doubt this will change over time as microformats are adopted by more people, and individuals with different outlooks begin to contribute to the site. All this will go towards opening up the concepts and ideas to the mainstream web development community.
+
+<h3>Are they supported yet?</h3>
+
+Another misconceived point I have heard is that there's no point using these microformats becuase there's no implementations or software that support them. However, although the number of real world implementations of microformats is still low, this is not because of lack of support. Support of what? Remember, this is just pure and simple XHTML, with some extra formatting in the form of semantic <code>class</code> names. It is supported inherently by CSS, Javascript and any other technology that sits alongside XHTML.
+
+It is trivial to write a Javascript that will scan a page for a certain format and pull it out for manipulation in whatever way you see fit. Can you not think of a use for this anywhere? How about marking up events on your company intranet so people can synchronise them with iCal? Marking up contacts so they can be synchronised with an address book or CRM application?
+
+Comments on this site are marked up using the hcard format. Using a bookmarklet pointing to Brian Suda's X2V implementation I can pull out the names and URL of commentors on this site and have them delivered to me in vcard format with the press of one button. This is a real world use of microformats that I am using right now. Don't underestimate the power of simplicity on the web. The web is built on the most simplistic formats.

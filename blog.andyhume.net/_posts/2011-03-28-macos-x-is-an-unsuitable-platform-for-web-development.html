@@ -1,0 +1,26 @@
+--- 
+layout: post
+title: MacOS X is an unsuitable platform for web development
+published: true
+meta: 
+  _edit_last: "2"
+tags: []
+
+type: post
+status: publish
+---
+<p>This is a short comment on Ted Dziuba's version of why <a href="http://teddziuba.com/2011/03/osx-unsuitable-web-development.html">MacOS X is an Unsuitable Platform for Web Development</a>. Ted is right and wrong at the same time.</p>
+
+<p>Unless you're building the simplest of web sites with static pages or <em>just</em> PHP you shouldn't develop on OS X. I used to. I used to compile MySQL and Apache from source, upgrade Python, install Django and a bunch of other Python tools, and leave myself in a hell of a mess, because yes, package management on OS X is a pain in the proverbial. And I hated doing this on the same machine that was my primary machine for email, web browsing, and other 'desktop' type tasks.</p>
+
+<p>The obvious solution to this is virtualisation. Using Parallels, VMWare, or <a href="http://www.virtualbox.org/">VirtualBox</a> (my current choice) you can spin up as many sand-boxed environments as you like (which is why I don't find much value in <a href="http://pypi.python.org/pypi/virtualenv">virtualenv</a>). Using the same mechanisms you use to create production machines will get you most of the way to a development machine. Take a snapshot of that (or better still, use something like <a href="http://vagrantup.com/">Vagrant</a>) and you've got re-usable and shareable development images.</p>
+
+<h3>Why is this good?</h3>
+
+<p>You'll catch bugs early. By developing code in an environment that closely matches production you'll develop code that is more likely to work in that environment. You'll get less bugs reported to you when your code moves into staging, or worse still production.</p>
+
+<p>You're sandboxed. You can feel free to install whatever dev tools you want on that machine, with no danger of screwing up your main desktop machine, or bloating it with crap you don't need. Secondly, if you need a different environment for different projects you don't have to manage them within one OS. I can't imagine the hell on earth I'd go through to setup Apache with one lot of virtual hosts pointing at Python and Django, others pointing at Ruby on Rails, etc... all on OS X, where I write my email and sometimes open things like Photoshop and Fireworks.</p>
+
+<p>You can still use OS X editors. I normally use <a href="http://macfusionapp.org/">Macfusion</a> to mount appropriate directories of my VMs on OS X, so that I can use Textmate and other OS X tools to edit and manage code. I'm sure there is a better more fashionable approach than Macfusion, but I'm a creature of habit and it works for me.</p>
+
+<p>The best thing about this is, despite OS X being an unsuitable platform for web development, you can still use it as your primary OS. It is a better, more stable, more pleasing and usable platform than any version of Windows <ins>or Ubuntu Desktop</ins>.</p>

@@ -1,0 +1,36 @@
+--- 
+layout: post
+title: Forgotten Times
+published: true
+meta: 
+  _edit_last: "2"
+tags: []
+
+type: post
+status: publish
+---
+<p>Times New Roman is one of the most widely used typefaces in the world, as well as one of the most recognisable. The standard default font in nearly all browsers in living memory is Times, and for years when reading content on the web it was the typeface we were stuck with.</p>
+
+<p>Until  the <code>&lt;font&gt;</code> tag  was introduced by browser vendors in 1995 there was no way of changing the font family except by changing the default font in your browser's settings---which people rarely did anyway, as Times was seen as the obvious choice.</p>
+
+<p>However, as the excitement of designating fonts on the web became more widespread---even becoming a <abbr title="World Wide Web Consortium">W3C</abbr> recommendation in 1997---designers rebuked Times fairly resolutely, and it became the emblem of early 1990's web pages.  The forgotten font of the web.</p>
+
+<h3>Typography Times</h3>
+
+<p>With the birth of <abbr title="Cascading Style Sheets">CSS</abbr>, web typography was given a new lease of life. Suddenly we had control of <code>line-height</code> (leading), <code>letter-spacing</code>, and <code>word-spacing</code>. But Times missed out on most of these revelations because hardly anyone was using it. At the same time, a school of thought that regarded sans-serif typefaces to be more readable on the screen, struck another blow to Times's hope of a comeback.</p>
+
+<h3>Times are changing</h3>
+
+<p>In case you hadn't noticed, this article uses the Times New Roman typeface. That might surprise you if you are only familiar with it in its un-styled form---the 1990's emblem. I think this text is really rather pretty.</p>
+
+<p>Let's have a look at how we got from the plain, rather amateur look of the un-styled Times, to what you are reading now. Here is an example of your bog standard, rather embarrassing, default Times.</p>
+
+<div class="textex"><p>It is generally considered good practice when selecting fonts to choose from the resident default fonts for most operating systems---specifding because I feel that serif typefaces can have a slightly cluttered feel when on the screen, particularly if the line length of the body text is fairly long, which it is at UsableType. A good rule is to adjust the amount of leading relative to the line length. If you have shorter lines than UsableType then you should probably use a little less <code>line-height</code>, although I very rarely go below <code>1.4</code> for body text. This already gives us a distinctly different look.</p></div>
+
+<div class="textex" style="line-height:1.6;"><p>It is generally considered good practice when selee feel of the text. The best thing to do when applying letter-spacing is to test several values and watch their effects in different browsers.</p></div>
+
+<p>With that last addition we have the classic Times New Roman typeface looking as good as new, with the finished rule is as follows.</p>
+
+<div class="codex">body {<br />line-height:1.6;<br />word-spacing:0.1em;<br />font-size:90%;<br />letter-spacing:0.01em;<br />}</div>
+
+<p>It would be great to see a resurgence of Times being used in 2005. Next time you need a serif font for the screen, instead of just typing Georgia without thinking, have a look at Times. Have a play with the <abbr title="Cascading Style Sheets">CSS</abbr>, and let's see if we can restore it to its former glory.</p>

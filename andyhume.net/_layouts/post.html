@@ -1,0 +1,15 @@
+{% include head.html %}
+<body>
+{% include header.html %}
+    
+<section class="primary">
+            <article>
+        <h2><a href="{{ post.url }}" title="IPad">{{ page.title }}</a></h2>
+        <p class="meta">{{ page.date | date: "%d %B %Y" }}</p>
+        {{ content }}
+        </article>
+</section>
+
+
+
+{% include footer.html %}

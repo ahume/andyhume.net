@@ -1,0 +1,13 @@
+echo -e "Starting deploy\n"
+echo -e "* Deploying to blog.andyhume.net."
+
+s3cmd sync --recursive --acl-public --delete-removed --add-header "Cache-Control: max-age=600" --mime-type "text/html" blog.andyhume.net/_site/ s3://blog.andyhume.net/
+
+echo -e "\n* Deploying to andyhume.net"
+
+s3cmd sync --recursive --acl-public --delete-removed --add-header "Cache-Control: max-age=600" --mime-type "text/html" andyhume.net/_site/ s3://andyhume.net/
+s3cmd put --recursive --acl-public --add-header "Expires: Thu, 15 Apr 2022 20:00:00 GMT" --add-header "Content-Encoding: gzip" --mime-type "text/css" andyhume.net/_site/c/ s3://andyhume.net/c/
+
+echo -e "\n=============="
+echo -e "All done"
+

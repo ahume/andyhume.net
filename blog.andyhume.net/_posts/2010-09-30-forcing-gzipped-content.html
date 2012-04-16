@@ -1,0 +1,39 @@
+--- 
+layout: post
+title: Forcing Gzipped content
+published: true
+meta: 
+  _edit_last: "2"
+  _wp_old_slug: ""
+tags: []
+
+type: post
+status: publish
+---
+<p>What would happen if every time you served a CSS or JavaScript file from your server you sent it Gzipped? Ignore whether the browser <em>thinks</em> it can handle compressed content, just send it compressed anyway.</p>
+
+<p>Steve Souders talks about <a href="http://www.stevesouders.com/blog/2010/07/12/velocity-forcing-gzip-compression/">forcing Gzip compression at Google here</a>, and this method assumes there is a significant number of browsers that won't be able to compress it and will choke. It would be interesting to see Google's data on that.</p>
+
+<p>What if you took the Google idea:</p>
+<ol>
+<li>For requests with missing or mangled Accept-Encoding headers, inspect the User-Agent to identify browsers that should understand gzip.</li>
+<li>Test their ability to decompress gzip.</li>
+<li>If successful, send them gzipped content!</li>
+</ol>
+
+<p>And changed it to:</p>
+<ol>
+<li>Send them gzipped content!</li>
+</ol>
+
+<p>Do we have any real-world data that tells us practically, how many browsers would not be able to deal with that, and what percentage of users would get a broken experience?</p>
+
+<p>This came up because <a href="http://twitter.com/#!/simonw/status/25595376549">Simon Willison tweeted</a>:</p>
+
+<blockquote>
+<p>S3/CloudFront don't handle conditional gzip, at all? That's a pretty shocking omission. The workarounds are really ugly&hellpi;</p>
+</blockquote>
+
+<p>Perhaps it <em>is</em> a pretty shocking omission, but plenty of people are serving compressed JS and CSS from Cloudfront, right? So is it as much of a deal-breaker as it might have been a few years ago?</p>
+
+

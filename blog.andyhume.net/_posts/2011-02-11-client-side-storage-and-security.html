@@ -1,0 +1,34 @@
+--- 
+layout: post
+title: Client-side storage and security
+published: true
+meta: 
+  _edit_last: "2"
+  _wp_old_slug: ""
+tags: []
+
+type: post
+status: publish
+---
+<p>Some of the best-supported HTML5 JavaScript APIs right now are the <code>localStorage</code> and <code>sessionStorage</code> APIs in the <a href="http://dev.w3.org/html5/webstorage/">Web Storage</a> specification. The latest version of all modern browsers (including IE8) support these, and some support the <a href="http://www.w3.org/TR/webdatabase/">Web SQL Database</a> API (although this spec is no longer active and isn't being taken further).</p>
+
+<p>What all of these APIs have in common is that anything a web developer chooses to stash in them is stored unencrypted on the user's hard-drive for an indefinite amount of time. The spec suggests user-agents MAY allow for configuration of expiry times, but I don't know of a browser that currently does that. This means that there is a constraint on the nature of the data that should be written to these storage systems.</p>
+
+<p>Over the years, two things that I've been trained to have flags pop-up in my head for is "unencrypted data", and "never expires". Not major red flags that warn "here's a massive security hole", but small blueish flags that warn "there's a limit to what we should do here".</p>
+
+<p>I don't believe this is a flaw in any WHATWG or W3C specification (and the members of these groups that I spoke to don't believe it's a significant issue), but I do believe there's a conversation that needs to take place amongst web developers. A conversation that makes people aware of the limits of client-side storage mechanisms, and gets them to take the question of what they store there seriously.</p>
+
+<h3>Mobile Gmail</h3>
+
+<p>Gmail's mobile web app stores data client-side using the Web SQL Database API. It doesn't just store small pieces of supporting data; it stores the full headers and body of your email locally in a SQLite database that can be read by any sufficiently privileged process running on that machine.</p>
+
+<p>Again, there isn't necessarily an inherent security problem here. If your machine or device has been compromised then it's been compromised, and there'll likely be any number of attack vectors that you're open to. On the other hand, when I log into Gmail over SSL, carry out all communication in an encrypted format, read my email, then log out and leave the building, I don't expect my emails to be sitting in plain text in a store that has no expiry directive.</p>
+
+<p>There are certainly counter-arguments to this, most of them along the lines of the horse having already bolted, and if you use the web then data gets downloaded, unencrypted, and exposed in various ways. These are fair arguments, but it doesn't mean we should forget about the whole thing and not consider how and what we explicitly ask a browser to store.</p>
+
+<h3>Things to consider when using localStorage</h3>
+<ul>
+<li>What could an attacker do with this data? Make a judgement call based on the sensitivity of the information you are storing and the value of it to an attacker.</li>
+<li>Is <code>sessionStorage</code> more appropriate? Do I really need to persist this data (or a subset of it) across multiple browser sessions, or is the value mainly in sharing data between pages, or tabs within a single session?</li>
+</ul>
+<br /><br />

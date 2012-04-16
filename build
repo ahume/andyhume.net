@@ -1,0 +1,29 @@
+echo -e "Starting build"
+echo -e "=============="
+echo -e "Building blog.andyhume.net..."
+
+echo -e "* Copying required build files"
+cp andyhume.net/_config.yml blog.andyhume.net/_config.yml
+cp -r andyhume.net/_includes blog.andyhume.net/_includes
+cp -r andyhume.net/_layouts blog.andyhume.net/_layouts
+
+echo -e "* Doing Jekyll build"
+cd blog.andyhume.net; jekyll; cd ../;
+
+echo -e "* Deleting required build files\n"
+rm blog.andyhume.net/_config.yml
+rm -r blog.andyhume.net/_includes
+rm -r blog.andyhume.net/_layouts
+
+echo -e "Building andyhume.net..."
+echo -e "* Doing Jekyll build"
+cd andyhume.net; jekyll; cd ../;
+
+echo -e "* Copying required build files"
+cp blog.andyhume.net/_site/homepage.html andyhume.net/_site/index.html
+
+echo -e "* gzipping assets"
+cd andyhume.net/_site/c; gzip main950.css; mv main950.css.gz main950.css; cd ../../../;
+
+echo -e "\n=============="
+echo -e "All done\n"

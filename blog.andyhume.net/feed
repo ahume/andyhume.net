@@ -1,0 +1,27 @@
+---
+layout: nil
+---
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog.andyhume.net</title>
+    <link>http://blog.andyhume.net/</link>
+    <atom:link href="http://blog.andyhume.net/feed" rel="self" type="application/rss+xml" />
+    <description>Thoughts and commentary on web development</description>
+    <language>en-us</language>
+    <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+    <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
+
+    {% for post in site.posts limit:20 %}
+    <item>
+      <title>{{ post.title }}</title>
+      <link>http://blog.andyhume.net{{ post.url }}</link>
+      <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+      <author>andyhume@gmail.com (Andy Hume)</author>
+      <guid>http://blog.andyhume.net{{ post.id }}</guid>
+      <description>{{ post.content | xml_escape }}</description>
+    </item>
+    {% endfor %}
+
+  </channel> 
+</rss>
