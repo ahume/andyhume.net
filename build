@@ -23,7 +23,7 @@ echo -e "* Copying required build files"
 cp blog.andyhume.net/_site/homepage.html andyhume.net/_site/index.html
 
 echo -e "* gzipping assets"
-cd andyhume.net/_site/c; gzip main950.css; mv main950.css.gz main950.css; cd ../../../;
+cd andyhume.net/_site/c; gzip main9503.css; mv main9503.css.gz main9503.css; cd ../../../;
 
 echo -e "\n=============="
 echo -e "All done\n"

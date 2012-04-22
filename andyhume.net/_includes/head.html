@@ -17,12 +17,15 @@
         wf.type = 'text/javascript';
         wf.async = 'true';
         var s = document.getElementsByTagName('head')[0];
-        //s.appendChild(wf);
+        s.appendChild(wf);
     })();
 </script>
 
-<link rel="stylesheet" href="http://andyhume.net/c/main950.css" type="text/css" media="screen and (min-width: 100px)" />
+<link rel="stylesheet" href="http://andyhume.net/c/main9503.css" type="text/css" media="screen and (min-width: 100px)" />
 
+{% if page.section == 'home' %}
+<title>Andy Hume</title>
+{% else %}
 <title>{{ page.title }} | Andy Hume</title>
-
+{% endif %}
 </head>
