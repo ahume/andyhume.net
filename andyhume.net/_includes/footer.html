@@ -28,5 +28,11 @@
     </div>
 </div><!-- /.footer -->
 </footer>
+<script>
+(function(f){function k(){var a={v:3,url:location.href,ref:document.referrer,gu_mi:o("GU_MI")},a=j(a);b&&(a+=j(p()));if(h&&void 0!==f.JSON){var c=h.getItem("ophan_follow");null!==c&&(h.clear("ophan_follow"),a+=j(JSON.parse(c)));l.addEventListener("click",function(a){if(a.target.nodeName.toLowerCase()==="a"){for(var c=[location.protocol,"//",location.host,location.pathname].join(""),d=this.href,f=m(a.target),a=a.target.innerHTML,g=0,b=0,i=a.length-1;0<=i?b<=i:b>=i;0<=i?b++:b--){g=(g<<5)-g+a.charCodeAt(b);
+g=g&g}h.setItem("ophan_follow",JSON.stringify({from:c,to:d,sel:f,hash:g}))}},!1)}q("http://localhost:9000/t?"+a)}function q(a){var c=new Image;c.src=a.substring(0,a.length-1);c.style.display="none";l.appendChild(c)}function p(){if(b){var a=b.timing;return{p_dns:a.domainLookupEnd-a.domainLookupStart,p_connect:a.connectEnd-a.connectStart,p_ttfb:a.responseStart-a.connectEnd,p_page:a.responseEnd-a.responseStart,p_frontend:a.loadEventStart-a.responseEnd,p_type:b.navigation.type,p_redirects:b.navigation.redirectCount}}}
+function o(a){for(var a=a+"=",c=document.cookie.split(";"),e=0,b=c.length;e<b;++e){for(var d=c[e];" "==d.charAt(0);)d=d.substring(1,d.length);if(0==d.indexOf(a))return d.substring(a.length,d.length)}return null}function m(a,c){c=c||"";if("html"===a.nodeName.toLowerCase())return"html"+c;var e=a.id;if(e)return"#"+e+c;var e=a.nodeName.toLowerCase(),b=a.className;b&&(e+="."+b.trim().split(/[\s\n]+/).join("."));for(var b=1,d=a;d.previousElementSibling;d=d.previousElementSibling,b++);1<b&&(e+=":nth-child("+
+b+")");return m(a.parentNode,">"+e+c)}function j(a){var c="",b;for(b in a)a.hasOwnProperty(b)&&null!==a[b]&&void 0!==a[b]&&""!==a[b]&&(c+=encodeURIComponent(b)+"="+encodeURIComponent(a[b])+"&");return c}var n=f.document,h=f.localStorage,b=window.performance||window.msPerformance||window.webkitPerformance||window.mozPerformance,l=document.getElementsByTagName("body")[0];n.addEventListener?f.addEventListener("load",k,!1):n.attachEvent&&f.attachEvent("onload",k)})(this);
+</script>
 </body>
 </html>

@@ -2,19 +2,15 @@
 layout: post
 title: "\"Browsers'll drive you nuts\""
 published: true
-meta: 
-  _edit_last: "2715"
-tags: []
-
 type: post
 status: publish
 ---
-Bloody hell... <a href="http://burri.to/~joshua/">Joshua Schachter</a> wasn't wrong when he drove home the above at the <a href="http://www.carsonworkshops.com/summit/">Future of Web Apps Summit</a>.
+<p>Bloody hell&hellip; <a href="http://burri.to/~joshua/">Joshua Schachter</a> wasn't wrong when he drove home the above at the <a href="http://www.carsonworkshops.com/summit/">Future of Web Apps Summit</a>.</p>
 
-Being fairly proficient with CSS, I think I've forgotten just how much trouble IE can cause when you're not sure how to work around it's various bugs and weird behaviours. But the last couple of weeks have opened up whole new world of torment and suffering for me in the field of browser inconsistencies.
+<p>Being fairly proficient with CSS, I think I've forgotten just how much trouble IE can cause when you're not sure how to work around it's various bugs and weird behaviours. But the last couple of weeks have opened up whole new world of torment and suffering for me in the field of browser inconsistencies.</p>
 
-The obvious developments in online mapping mean that most of <a href="http://multimap.com">my work</a> these days involves rather serious amounts of client-side scripting. Of course, on paper IE's support for Javascript and the W3C DOM is a hell of a lot better than it's CSS or even HTML support. But in practise, with the massive amounts of behavioural logic running on the client-side that draggable maps have, IE throws up so many inconsistencies you wouldn't believe it. And it's driving me nuts!
+<p>The obvious developments in online mapping mean that most of <a href="http://multimap.com">my work</a> these days involves rather serious amounts of client-side scripting. Of course, on paper IE's support for Javascript and the W3C DOM is a hell of a lot better than it's CSS or even HTML support. But in practise, with the massive amounts of behavioural logic running on the client-side that draggable maps have, IE throws up so many inconsistencies you wouldn't believe it. And it's driving me nuts!</p>
 
-The best of the lot came at the end of last week. A slight layout bug in IE was occuring after inserting a few extra chunks of content via the DOM. Seemed like a classic reflow bug, but none of my tricks for that managed to sort the problem. So, I started breaking things down, inserting a few alerts for debugging and trying to find out what was happening where.
+<p>The best of the lot came at the end of last week. A slight layout bug in IE was occuring after inserting a few extra chunks of content via the DOM. Seemed like a classic reflow bug, but none of my tricks for that managed to sort the problem. So, I started breaking things down, inserting a few alerts for debugging and trying to find out what was happening where.</p>
 
-To cut a fairly long story short I noticed that when I was triggering an alert box immediately before adding the new markup, the reflow bug didn't occur. Remove the alert and back it came! Grr... what the fuggery buck is that all about?
+<p>To cut a fairly long story short I noticed that when I was triggering an alert box immediately before adding the new markup, the reflow bug didn't occur. Remove the alert and back it came! Grr&hellip; what the fuggery buck is that all about?</p>

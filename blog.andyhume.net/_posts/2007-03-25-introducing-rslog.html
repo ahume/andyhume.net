@@ -2,34 +2,30 @@
 layout: post
 title: Introducing RSLog
 published: true
-meta: 
-  _edit_last: "2"
-tags: []
-
 type: post
 status: publish
 ---
-Remote Script Logging (RSLog) is a <a href="http://www.opensource.org/licenses/mit-license.php">MIT Licensed</a>, light-weight, and easily customisable script which allows you to catch and trace JavaScript errors occuring on your users&#8217; machines by logging them back to your web server.
+<p>Remote Script Logging (RSLog) is a <a href="http://www.opensource.org/licenses/mit-license.php">MIT Licensed</a>, light-weight, and easily customisable script which allows you to catch and trace JavaScript errors occuring on your users&#8217; machines by logging them back to your web server.</p>
 
-It is completely unobtrusive, adds only one reference to the browser&#8217;s global namespace, and weighs in at just 660 bytes when minified. Check out the <a href="http://mint.usabletype.com/rslog/demo.htm">demo page</a>.
+<p>It is completely unobtrusive, adds only one reference to the browser&#8217;s global namespace, and weighs in at just 660 bytes when minified. Check out the <a href="http://mint.usabletype.com/rslog/demo.htm">demo page</a>.</p>
 
 <h3>Using RSLog</h3>
 
-To use RSLog simply include the <a href="http://mint.usabletype.com/rslog/rslog.js">core JavaScript file</a> near the top of your document and begin logging by executing <code>RSLog.start()</code>.
+<p>To use RSLog simply include the <a href="http://mint.usabletype.com/rslog/rslog.js">core JavaScript file</a> near the top of your document and begin logging by executing <code>RSLog.start()</code>.</p>
 
-Of course the script needs to talk to something on the server. This can be in what ever language most suits your needs, but I have created a very basic PHP script that logs to a text file. The simplest way to start using RSLog is to download the <a href="http://mint.usabletype.com/rslog/pack.zip">gzipped archive</a> (containing the JavaScript, PHP, and log file) and unzip to your web server.
+<p>Of course the script needs to talk to something on the server. This can be in what ever language most suits your needs, but I have created a very basic PHP script that logs to a text file. The simplest way to start using RSLog is to download the <a href="http://mint.usabletype.com/rslog/pack.zip">gzipped archive</a> (containing the JavaScript, PHP, and log file) and unzip to your web server.</p>
 
 <h3>Options</h3>
 
-The <code>RSLog.start()</code> method excepts one optional argument. This is an object of configuration parameters as shown below.
+<p>The <code>RSLog.start()</code> method excepts one optional argument. This is an object of configuration parameters as shown below.</p>
 <ul id="option_list">
 <li><code>suppress</code> - Boolean to suppress errors being passed to browsers default error handling. Default:&nbsp;true</li>
 <li><code>url</code> - Full URL to send errors to. Default: <code style="font-weight:normal;">/rslog/rslog.php</code> on current host.</li>
 </ul>
-<code>
+<pre><code>
 RSLog.start( { suppress: false, url: 'http://example.com/rslog/log.asp' } )    
-</code>
+</code></pre>
 
 <h3>Supported browsers</h3>
 
-To remain unobtrusive the script uses the <code>window.onerror</code> event handler to catch errors. This event is only supported by IE 4+ and Gecko based browsers, including Firefox, Camino and Mozilla. It is not supported by Safari or Opera, so you won&#8217;t be able to catch errors specific to those browsers.
+<p>To remain unobtrusive the script uses the <code>window.onerror</code> event handler to catch errors. This event is only supported by IE 4+ and Gecko based browsers, including Firefox, Camino and Mozilla. It is not supported by Safari or Opera, so you won&#8217;t be able to catch errors specific to those browsers.</p>

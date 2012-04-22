@@ -2,55 +2,51 @@
 layout: post
 title: Five quick Javascript tips
 published: true
-meta: 
-  _edit_last: "2"
-tags: []
-
 type: post
 status: publish
 ---
-When we're hiring JavaScript developers at Multimap we sometimes ask them to build a little application, or mash-up, with the <a href="http://multimap.com/apidocs/">Multimap API</a>. It's a pretty simple little task but it allows us to see how people approach building a web application.
+<p>When we're hiring JavaScript developers at Multimap we sometimes ask them to build a little application, or mash-up, with the <a href="http://multimap.com/apidocs/">Multimap API</a>. It's a pretty simple little task but it allows us to see how people approach building a web application.</p>
 
-This is a list of five things I often notice when looking at these little applications that could be improved. They may be obvious to some people, but certainly not to all. So, without more ado: five quick JavaScript tips to improve the quality of your code.
+<p>This is a list of five things I often notice when looking at these little applications that could be improved. They may be obvious to some people, but certainly not to all. So, without more ado: five quick JavaScript tips to improve the quality of your code.</p>
 
 <h3>Use the submit event on forms</h3>
 
-When attaching event handlers to forms, always use the submit event of the form and not the click event of the submit button.
+<p>When attaching event handlers to forms, always use the submit event of the form and not the click event of the submit button.</p>
 
 <h3>If something is clickable, make sure it's a link</h3>
 
-Don't attach click events to elements other than anchors or form submit buttons. This is particularly important for users navigating the site with methods other than the mouse, where they may have difficulty getting focus on non-anchor elements.
+<p>Don't attach click events to elements other than anchors or form submit buttons. This is particularly important for users navigating the site with methods other than the mouse, where they may have difficulty getting focus on non-anchor elements.</p>
 
 <h3>Simple loop optimisation</h3>
 
-There's a very simple change you can make to a <code>for</code> loop to improve it's performance.
+<p>There's a very simple change you can make to a <code>for</code> loop to improve it's performance.</p>
 
-<code>
+<pre><code>
 for ( var i = 0; i < elements.length; ++i )
 for ( var i = 0, j = elements.length; i < j; ++i )
-</code>
+</code></pre>
 
-In the second example the length of the elements array is stored in the j variable, so it's not queried on every iteration of the loop.
+<p>In the second example the length of the elements array is stored in the j variable, so it's not queried on every iteration of the loop.</p>
 
 <h3>Use anonymous functions for event handlers</h3>
 
-Particularly with short functions like the below, it is far more readable to create an anonymous function than to reference another named function elsewhere. It also allows you to use closures of course.
+<p>Particularly with short functions like the below, it is far more readable to create an anonymous function than to reference another named function elsewhere. It also allows you to use closures of course.</p>
 
-<code>
+<pre><code>
 anchor.onclick = function() {
     map.goToPosition( home );
     return false;
 }
-</code>
+</code></pre>
 
 <h3>Use <code>Array.join</code> instead of concatenating strings</h3>
 
-When working with long strings that need to be joined up, it is more readable and better for performance to place strings in an array and use the <code>join</code> method to return a string.
+<p>When working with long strings that need to be joined up, it is more readable and better for performance to place strings in an array and use the <code>join</code> method to return a string.</p>
 
-<code>
+<pre><code>
 var text = 'There are' + elements.length + 'members in the elements array.';
 var text = ['There are', elements.length, 'members in the elements array.'].join(' ');
-</code>
+</code></pre>
 
 <strong>Update:</strong>
-A number of people have mentioned to me that the Array.join technique for string concatenation is a bad one, particularly if you're only doing it with a small number of strings. Our benchmarks show it being faster for IE when you get to about 6/7 string concatenations, so it's been useful to us in some situations. But I'd agree with Stuart below that for the average situation it's not going to be worth it. However, I don't see using Array.join() for string concatenation as an <a href="http://friedcellcollective.net/outbreak/2007/09/06/use-arrayjoin-instead-of-concatenating-strings/">abuse of JavaScript</a>.
+<p>A number of people have mentioned to me that the Array.join technique for string concatenation is a bad one, particularly if you're only doing it with a small number of strings. Our benchmarks show it being faster for IE when you get to about 6/7 string concatenations, so it's been useful to us in some situations. But I'd agree with Stuart below that for the average situation it's not going to be worth it. However, I don't see using Array.join() for string concatenation as an <a href="http://friedcellcollective.net/outbreak/2007/09/06/use-arrayjoin-instead-of-concatenating-strings/">abuse of JavaScript</a>.</p>
