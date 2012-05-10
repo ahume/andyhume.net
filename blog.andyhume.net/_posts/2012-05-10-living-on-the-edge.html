@@ -1,0 +1,30 @@
+--- 
+layout: post
+title: Living on the Edge
+published: true
+
+type: post
+status: publish
+---
+<p>I&rsquo;ve been using <a href="http://wordpress.com/">Wordpress</a> since 2004. In those day&rsquo;s <a href="http://ma.tt/2004/06/the-dredge/">Matt Mullenweg would announce</a> new Wordpress sites he found on his blog (now there are <a href="http://en.wordpress.com/stats/">over 70 million</a> he doesn&rsquo;t do that anymore).</p>
+
+<p>Since then, my blog has moved across various domains, and across various platforms, but in 2009 I switched back to an installation of Wordpress running on <a href="http://dreamhost.com/">Dreamhost</a>&rsquo;s shared hosting. About a year ago it started getting into serious trouble, being hacked to show dodgy pharmaceutical content to Google (at one point removing me entirely from Google&rsquo;s index), and more recently with some persistent XSS which redirected visitors to other unsavoury endpoints.</p>
+
+<p>I don&rsquo;t really know how any of these came about, or whether they were due to vulnerabilities in Wordpress, Dreamhost, or me (via some social means)&mdash;and I don't have the motivation to try and find out. I spent some time manually trying to remove injected code from PHP files, but I was never fixing the underlying vulnerability so these things always came back, and I got fed up of it. A few weekends ago I thought I&rsquo;d try the next thing.</p>
+
+<p>I&rsquo;ve always liked the idea of storing all my content in HTML. If there&rsquo;s one format I&rsquo;m willing to bet longer term on it&rsquo;s HTML. And it&rsquo;s easy to work with. No setting up databases, no setting up libraries to read from databases, no exporting/importing, or converting between formats.</p>
+
+<p>As an added bonus, if everything is stored in plain HTML, you can just throw it on a disk on a computer somewhere, stick an HTTP server in front of it, and you&rsquo;re more or less good to go. You don&rsquo;t get much simpler than that when it comes to a production environment.</p>
+
+<p>So that&rsquo;s what I&rsquo;m doing. I&rsquo;m creating static files for every blog post on the site, and I&rsquo;m using <a href="https://github.com/mojombo/jekyll">Jekyll</a> running on my laptop to inject common elements in to them, create the archive pages, etc&hellip; I then push them to <a href="http://aws.amazon.com/s3/">S3</a>, which is used as the origin for two <a href="http://aws.amazon.com/cloudfront/">Cloudfront</a> distributions, one for andyhume.net and another for blog.andyhume.net.</p>
+
+<p>This means every page of my blog is served by Amazon&rsquo;s CDN. This is massive overkill, but fun&mdash;and actually so far a bit cheaper than any shared hosting I&rsquo;ve used.</p>
+
+
+ 
+
+
+
+
+
+
