@@ -1,0 +1,53 @@
+--- 
+layout: post
+title: HTML5 in six steps
+published: true
+
+type: post
+status: publish
+---
+<p>The six steps below will take you only minutes to implement and are the first steps in adopting HTML5. Each one provides some small benefit to either you as a developer or your users.</p>
+
+<h3>1) Update the DOCTYPE</h3>
+<p>For many years choosing a Document Type Definition and associated DOCTYPE required a certain amount of consideration. Would you choose HTML or XHTML? If you chose XHTML would it be Transitional or Strict? Strict 1.0, or Strict 1.1? Each of those came with its own nuances. Now, it&rsquo;s simple. Here is the HTML5 DOCTYPE:</p>
+<div class="codex"><code>&lt;!DOCTYPE html&gt;</code></div>
+<p>That is the minimum required to make a modern browser render your page in standards mode. This is the DOCTYPE you should be using.</p>
+
+
+<h3>2) Remove the <code>type</code> attribute from <code>script</code> elements</h3>
+<p>Once upon a time you needed:</p>
+<div class="codex"><code>&lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;</code></div>
+<p>It turned out browsers never took the slightest bit of notice of the <code>type</code> attribute when it contained <code>text/javascript</code>, so HTML5 binned it.</p>
+<div class="codex"><code>&lt;script src="jquery.js"&gt;&lt;/script&gt;</code></div>
+
+<h3>3) Remove the <code>type</code> attribute from <code>style</code> elements</h3>
+<p>You guessed it, a <code>link</code> element linking to a CSS file doesn&rsquo;t need a <code>type</code> attribute either. This does the job fine:</p>
+<div class="codex"><code>&lt;link rel="stylesheet" href="bootstrap.css" /&gt;</code></div>
+<p>You do still need the <code>rel</code> attribute however.</p>
+
+
+<h3>4) Simplify the content type meta declaration</h3>
+<p>Again, another simplified tag for the <code>head</code>. Remove those old convoluted content type declarations and just throw in:</p>
+<div class="codex"><code>&lt;meta charset="UTF-8"&gt;</code></div>
+<p>Incidentally, it&rsquo;s a good practise for your HTTP response to contain a Content-Type header as well.</p>
+
+
+<h3>5) Add the placeholder attribute to inputs</h3>
+<p>For years we fiddled around using JavaScript to add and remove hints in a text input. This is now completely redundant. The <code>placeholder</code> attribute is supported in the latest version of every browser and older browsers simply ignore it. So don&rsquo;t bother trying to support them with fallback Javascript&mdash;just move on! Incidentally, don&rsquo;t forget to continue including the <code>label</code> element to help assistive technology out:</p>
+<div class="codex"><code>&lt;label for="city"&gt;What city do you live in:<br />
+    &lt;input id="city" type="text" placeholder="e.g., London" /&gt;<br />
+&lt;/label&gt;</code></div>
+
+
+<h3>6) Improve input types</h3>
+<p>A whole range of new values for the <code>type</code> attribute on inputs now exist. Try out:</p>
+<div class="codex"><code>&lt;input type="email" /&gt;</code><br />
+<code>&lt;input type="phone" /&gt;</code><br />
+<code>&lt;input type="url" /&gt;</code><br />
+<code>&lt;input type="search" /&gt;</code></div>
+<p>Browsers that don&rsquo;t support these fall back to a standard text input, but browsers that do might give you a nice surprise, both with how they look and how they behave. You certainly won&rsquo;t get burnt by adding this extra richness to your markup.</p>
+
+<p>There are many more simple steps you can take as you continue incorporating HTML5 into your sites. It&rsquo;s certainly not an all or nothing situation. Start with these, and as other features become useful you&rsquo;ll be in a position to start adopting them. For further reading, I would recommend Jeremy Keith&rsquo;s <a href="http://html5forwebdesigners.com/">HTML5 for Web Designers</a>.</p>
+
+
+
